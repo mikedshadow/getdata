@@ -1,12 +1,9 @@
 
-### Download the folder into the working directory
-if(!file.exists("./project")){dir.create("./project")}
-fileUrl <- "http://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip?accessType=DOWNLOAD"
-download.file(fileUrl,destfile="./project/data.zip")
+### check the data folder is in the working directory
+if(!file.exists("./UCI HAR Dataset")){
+      stop("Please check that the data folder is present")
+      }
 
-###  Unzip the folder
-unzip("./project/getdata-projectfiles-UCI HAR Dataset.zip")
-setwd("./getdata-projectfiles-UCI HAR Dataset")
 
 ####  Read in the test and training sets, their subjects and their labels
 testdata <- read.table("./UCI HAR Dataset/test/X_test.txt")
