@@ -44,8 +44,9 @@ widecols$activity <- factor(widecols$activity,labels=c("walking",
                                            "standing", 
                                            "laying"))
 widecols$subject <- factor(widecols$subject)
-####  produces the desired summary dataset
-tidy <-widecols %.% group_by(activity, subject) %.% summarise_each(funs(sum))
+####  produces the desired summary dataset this requires the package dplyr 
+require(dplyr)
+tidy <-widecols %>% group_by(activity, subject) %>% summarise_each(funs(mean))
 ####  writes the output file "tidy.txt" in the working directory
 write.table(tidy, "./tidy.txt",row.name=FALSE)
 

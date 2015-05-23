@@ -1,7 +1,10 @@
 # getdata
 coursera course getdata-014
 
-First we check if the data file is present if not an error message appears.
+____________________________
+
+## Description of tidying process in run_analysis.R
+First check if the data folder is present if not an error message appears.
 
 Starting with the folder of raw data, there are 3 .txt files, x_folder, y_folder and subject_folder for each of the two folders, test and train. Additionally, the codebook is in the features.txt file giving the names of the variables.
 
@@ -18,7 +21,9 @@ After choosing the filters on the variables, combine and sort any  output vector
 Now using this vector as the rows in 'features' extract the names(use as.character) of the column variables, add in "activity" and "subject" , and store as 'featnames'.
 
 Using 'featnames' assign the variables their names from the codebook with names().
-Convert 'activity' and 'subject' to factors and give the activities their names from the activity_labels.txt file. I suppose this could be done with extracting code but it was short,there are only six activities.
+Convert 'activity' and 'subject' to factors and give the activities their names from the activity_labels.txt file. I suppose this could be done with extracting code but it was short, there are only six activities. This dataset would be the result of step 4 in the instructions. 
+
+Finally, construct the tidy dataset, 'tidy' by using the summarise_each function in the dplyr package with the mean function and the two grouping variables 'activity' and 'subject'. Then the write.table function produces the output file tidy.txt which is in the github repo in addition to being submitted on Coursera. Thanks for your time, I tried to be concise.
 
 
 
